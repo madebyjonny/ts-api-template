@@ -1,12 +1,12 @@
 import { Lucia } from "lucia";
 import { BetterSqlite3Adapter } from "@lucia-auth/adapter-sqlite";
-import sqlite from "better-sqlite3";
+import Database from "better-sqlite3";
 
-const db = sqlite();
+const db = new Database("./db/sqlite.db");
 
 const adapter = new BetterSqlite3Adapter(db, {
   user: "user",
-  session: "session",
+  session: "sessions",
 });
 
 export const lucia = new Lucia(adapter, {
