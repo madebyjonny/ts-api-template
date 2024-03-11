@@ -1,10 +1,10 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { user } from "./handlers/users/index.js";
+import { auth } from "./handlers/auth/index.js";
 
 const app = new Hono();
 
-app.route("/users", user);
+app.route("/auth", auth);
 
 const port = 4321;
 console.log(`Server is running on port ${port}`);
