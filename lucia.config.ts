@@ -1,4 +1,4 @@
-import { Lucia } from "lucia";
+import { Lucia, TimeSpan } from "lucia";
 import { BetterSqlite3Adapter } from "@lucia-auth/adapter-sqlite";
 import Database from "better-sqlite3";
 
@@ -10,6 +10,7 @@ const adapter = new BetterSqlite3Adapter(db, {
 });
 
 export const lucia = new Lucia(adapter, {
+  sessionExpiresIn: new TimeSpan(2, "w"), // 2 weeks
   sessionCookie: {
     attributes: {
       // set to `true` when using HTTPS
